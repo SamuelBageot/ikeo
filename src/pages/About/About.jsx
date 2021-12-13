@@ -1,8 +1,10 @@
+import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
+
 const About = () => {
     return (
-        <div>
-            <h1>ABOUT</h1>
-        </div>
+        <>
+            <Breadcrumb />
+        </>
     )
 };
 

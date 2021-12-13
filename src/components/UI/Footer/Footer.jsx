@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <S.Footer>
             <S.Texts>
-                &copy; 2020 <S.Brand>Ikeo</S.Brand> All rights reserved
+                &copy; 2021 <S.Brand>Ikeo</S.Brand> All rights reserved
             </S.Texts>
         </S.Footer>
     )
