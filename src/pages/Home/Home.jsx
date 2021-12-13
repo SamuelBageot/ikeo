@@ -1,8 +1,16 @@
+import Contact from "../../components/HomePage/Contact/Contact";
+import FeaturedProducts from "../../components/HomePage/FeaturedProducts/FeaturedProducts";
+import HeroBanner from "../../components/HomePage/HeroBanner/Herobanner";
+import Services from "../../components/HomePage/Services/Services";
+
 const Home = () => {
     return (
-        <div>
-            <h1>HOME</h1>
-        </div>
+        <>
+            <HeroBanner />
+            <FeaturedProducts />
+            <Services />
+            <Contact />
+        </>
     )
 };
 

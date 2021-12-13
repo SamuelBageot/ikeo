@@ -1,0 +1,21 @@
+import * as S from './styles';
+
+const HeroBanner = () => {
+    return (
+        <S.Wrapper>
+            <S.HeroBanner>
+                <S.Texts>
+                    <S.Title>Design Your Comfort Zone</S.Title>
+                    <S.Paragraph>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at sed omnis corporis doloremque possimus velit! Repudiandae nisi odit, aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis alias ?</S.Paragraph>
+                    <S.Btn to="/products">SHOP NOW</S.Btn>
+                </S.Texts>
+                <S.Images>
+                    <img src="/images/bois-3.jpg" alt="" />
+                    {/* <img src="/images/bois-1.jpg" style={{ position: "absolute", height: "40%", bottom: "0", left: "20px", borderRadius: "8px" }} alt="" /> */}
+                </S.Images>
+            </S.HeroBanner>
+        </S.Wrapper>
+    )
+};
+
+export default HeroBanner;
