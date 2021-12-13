@@ -1,4 +1,5 @@
 import react, { useState } from 'react';
+import Separator from '../../UI/Separator/Separator';
 import FeaturedproductCard from './FeaturedProductCard/FeaturedProductCard';
 import * as S from './styles';
 
@@ -10,7 +11,7 @@ const FeaturedProducts = () => {
         <S.Wrapper>
             <S.FeaturedProducts>
                 <S.Title>Featured Products</S.Title>
-                <S.Separator />
+                <Separator />
                 <S.Products>
                     {products.map(product => <FeaturedproductCard key={Math.random()} {...product} />)}
                 </S.Products>
