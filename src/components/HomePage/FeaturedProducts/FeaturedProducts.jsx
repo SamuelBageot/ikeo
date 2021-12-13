@@ -1,11 +1,10 @@
-import react, { useState } from 'react';
 import Separator from '../../UI/Separator/Separator';
 import FeaturedproductCard from './FeaturedProductCard/FeaturedProductCard';
 import * as S from './styles';
 
 const FeaturedProducts = () => {
 
-    const [products, setProducts] = useState([{ name: "product name", price: 12450, image: '/images/sofa.jpg' }, { name: "product name", price: 12450, image: '/images/sofa.jpg' }, { name: "product name", price: 12450, image: '/images/sofa.jpg' }]);
+    const products = [{ name: "product name", price: 12450, image: '/images/sofa.jpg' }, { name: "product name", price: 12450, image: '/images/sofa.jpg' }, { name: "product name", price: 12450, image: '/images/sofa.jpg' }];
 
     return (
         <S.Wrapper>
