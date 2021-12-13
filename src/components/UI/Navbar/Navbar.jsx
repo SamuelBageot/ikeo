@@ -19,7 +19,7 @@ const Navbar = () => {
                     </S.Item>
                 </S.Menu>
 
-                <S.Cart to="/cart" end>
+                <S.Cart to="/cart">
                     <FaShoppingCart fill="var(--color-secondary)" fontSize="22px" />
                     <span>2</span>
                 </S.Cart>
