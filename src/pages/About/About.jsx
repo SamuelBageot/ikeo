@@ -8,7 +8,9 @@ const About = () => {
             <Breadcrumb />
             <S.Wrapper>
                 <S.About>
-                    <S.Img src="/images/interior.jpg" />
+                    <S.ImgContainer>
+                        <S.Img src="/images/interior.jpg" alt="beautiful interior" />
+                    </S.ImgContainer>
                     <S.Texts>
                         <S.Title>Our Story</S.Title>
                         <Separator margin="1rem 0" />

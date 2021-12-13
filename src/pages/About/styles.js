@@ -12,16 +12,23 @@ export const About = styled.div`
     margin: 75px 0;
 `;
 
+export const ImgContainer = styled.div`
+    width: 31%;
+    height: 520px;
+    flex: 0 0 auto;
+    margin-right: 30px;
+`;
+
 export const Img = styled.img`
     object-fit: cover;
     border-radius: 5px;
     display: block;
-    margin-right: 50px;
-    width: 30%;
+    height: 100%;
+    width: 100%;
 `;
 
 export const Texts = styled.div`
-
+    flex: 1 1 auto;
 `;
 
 export const Title = styled.h1`
