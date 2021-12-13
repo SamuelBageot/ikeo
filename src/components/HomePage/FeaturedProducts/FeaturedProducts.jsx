@@ -12,7 +12,7 @@ const FeaturedProducts = () => {
                 <S.Title>Featured Products</S.Title>
                 <S.Separator />
                 <S.Products>
-                    {products.map(product => <FeaturedproductCard key={product.id} {...product} />)}
+                    {products.map(product => <FeaturedproductCard key={Math.random()} {...product} />)}
                 </S.Products>
                 <S.Btn to="/products">ALL PRODUCTS</S.Btn>
             </S.FeaturedProducts>

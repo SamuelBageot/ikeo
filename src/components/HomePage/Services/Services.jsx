@@ -12,7 +12,7 @@ const Services = () => {
                 <S.Cards>
                     {services.map(service => {
                         return (
-                            <S.Card>
+                            <S.Card key={Math.random()}>
                                 {service.icon}
                                 <S.ServiceTitle>{service.title}</S.ServiceTitle>
                                 <S.ServiceText>{service.text}</S.ServiceText>

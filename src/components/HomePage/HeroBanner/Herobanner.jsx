@@ -11,7 +11,6 @@ const HeroBanner = () => {
                 </S.Texts>
                 <S.Images>
                     <img src="/images/bois-3.jpg" alt="" />
-                    {/* <img src="/images/bois-1.jpg" style={{ position: "absolute", height: "40%", bottom: "0", left: "20px", borderRadius: "8px" }} alt="" /> */}
                 </S.Images>
             </S.HeroBanner>
         </S.Wrapper>
