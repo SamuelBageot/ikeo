@@ -18,7 +18,10 @@ const productsSlice = createSlice({
     name: 'products',
     initialState,
     reducers: {
-
+        updateFilteredProducts: (state, action) => {
+            console.log(action.payload);
+            state.filteredProducts = action.payload;
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(fetchProducts.fulfilled, (state, action) => {

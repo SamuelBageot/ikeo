@@ -1,80 +1,85 @@
 import { useEffect, useState } from "react";
 import { formatPrice } from '../../utils';
 import { FaCheck } from 'react-icons/fa';
+import * as S from './styles';
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { productsActions } from "../../store/productsSlice";
 
 const Sidebar = () => {
 
-    // const initialSearchFilters = {
-    //     categories: ["all"],
-    //     colors: ["all"],
-    //     companies: ["all"],
-    //     prices: []
-    // };
+    const { products } = useSelector(state => state.products);
+    const dispatch = useDispatch();
 
-    // const initialUserFilters = {
-    //     search: "",
-    //     category: "all",
-    //     colors: "all",
-    //     company: "all",
-    //     price: "",
-    //     shipping: false
-    // }
+    const initialSearchFilters = {
+        categories: ["all"],
+        colors: ["all"],
+        companies: ["all"],
+        prices: []
+    };
 
-    // const [searchFilters, setSearchFilters] = useState(initialSearchFilters);
-    // const [userFilters, setUserFilters] = useState(initialUserFilters);
-    // const [filteredProducts, setFilteredProducts] = useState(products);
-    // const [maxPrice, setMaxPrice] = useState("");
+    const initialUserFilters = {
+        search: "",
+        category: "all",
+        colors: "all",
+        company: "all",
+        price: "",
+        shipping: false
+    };
 
-    // useEffect(() => {
-    //     if (products.length) {
-    //         defineSearchFilters(products);
-    //     } else {
-    //         console.log("No products");
-    //     }
-    // }, [products]);
+    const [searchFilters, setSearchFilters] = useState(initialSearchFilters);
+    const [userFilters, setUserFilters] = useState(initialUserFilters);
+    const [maxPrice, setMaxPrice] = useState("");
 
-    // useEffect(() => {
-    //     const { search, category, company, colors, price, shipping } = userFilters;
-    //     const productFilter = products.filter(product =>
-    //         (search === "" ? product : product.name.startsWith(search)) &&
-    //         (category === "all" ? product : product.category === category) &&
-    //         (company === "all" ? product : product.company === company) &&
-    //         (colors === "all" ? product : product.colors.includes(colors)) &&
-    //         (price >= product.price ? product : product.price <= price) &&
-    //         (!shipping ? product : product.shipping)
-    //     );
-    //     console.log(productFilter);
-    //     onChange(productFilter);
-    // }, [userFilters]);
+    useEffect(() => {
+        if (products.length) {
+            defineSearchFilters(products);
+        } else {
+            console.log("No products found");
+        }
+    }, [products]);
 
-    // const defineSearchFilters = prods => {
-    //     const filters = { ...initialSearchFilters };
-    //     prods.forEach(product => {
-    //         filters.categories.push(product.category);
-    //         filters.companies.push(product.company);
-    //         product.colors.forEach(color => filters.colors.push(color));
-    //         filters.prices.push(product.price);
-    //     })
-    //     filters.categories = [...new Set(filters.categories)];
-    //     filters.companies = [...new Set(filters.companies)];
-    //     filters.colors = [...new Set(filters.colors)];
-    //     const maxPrice = Math.max(...filters.prices);
-    //     setSearchFilters(filters);
-    //     setMaxPrice(maxPrice);
-    //     setUserFilters({ ...initialUserFilters, price: maxPrice });
-    // };
+    useEffect(() => {
+        const { search, category, company, colors, price, shipping } = userFilters;
+        const productFilter = products.filter(product =>
+            (search === "" ? product : product.name.startsWith(search)) &&
+            (category === "all" ? product : product.category === category) &&
+            (company === "all" ? product : product.company === company) &&
+            (colors === "all" ? product : product.colors.includes(colors)) &&
+            (price >= product.price ? product : product.price <= price) &&
+            (!shipping ? product : product.shipping)
+        );
+        dispatch(productsActions.updateFilteredProducts(productFilter));
+    }, [userFilters]);
 
-    // const defineUserFilters = e => {
-    //     const val = e.target.type === "checkbox" ? e.target.checked : e.target.value;
-    //     setUserFilters({ ...userFilters, [e.target.name]: val });
-    // };
+    const defineSearchFilters = prods => {
+        const filters = { ...initialSearchFilters };
+        prods.forEach(product => {
+            filters.categories.push(product.category);
+            filters.companies.push(product.company);
+            product.colors.forEach(color => filters.colors.push(color));
+            filters.prices.push(product.price);
+        })
+        filters.categories = [...new Set(filters.categories)];
+        filters.companies = [...new Set(filters.companies)];
+        filters.colors = [...new Set(filters.colors)];
+        const maxPrice = Math.max(...filters.prices);
+        setSearchFilters(filters);
+        setMaxPrice(maxPrice);
+        setUserFilters({ ...initialUserFilters, price: maxPrice });
+    };
 
-    // const clearFilters = () => setUserFilters({ ...initialUserFilters, price: maxPrice });
+    const defineUserFilters = e => {
+        const val = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+        setUserFilters({ ...userFilters, [e.target.name]: val });
+    };
+
+    const clearFilters = () => setUserFilters({ ...initialUserFilters, price: maxPrice });
 
     return (
         <div>
-            {/* <form action="" onSubmit={e => e.preventDefault()}>
-                <input name="search" type="text" placeholder="Search" style={{ padding: '7px', borderRadius: '5px', border: 'none', backgroundColor: 'lightblue' }} />
+            <form action="" onSubmit={e => e.preventDefault()}>
+                <S.SearchInput name="search" type="text" placeholder="Search" />
             </form>
             <div>
                 <h5>Category</h5>
@@ -101,7 +106,7 @@ const Sidebar = () => {
                 <label htmlFor="shipping">Free Shipping</label>
                 <input type="checkbox" id="shipping" name="shipping" checked={userFilters.shipping} onChange={defineUserFilters} />
             </div>
-            <button onClick={clearFilters} style={{ cursor: "pointer" }}>Clear Filters</button> */}
+            <button onClick={clearFilters} style={{ cursor: "pointer" }}>Clear Filters</button>
         </div>
     )
 };
