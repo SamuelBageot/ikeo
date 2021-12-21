@@ -1,12 +1,22 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router";
 import ErrorPage from "../../pages/404/404";
 import About from "../../pages/About/About";
 import Home from "../../pages/Home/Home";
 import Product from "../../pages/Products/Product/Product";
 import Products from "../../pages/Products/Products";
+import { fetchProducts } from "../../store/productsSlice";
 import Layout from "../UI/Layout/Layout";
 
 const App = () => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchProducts());
+    }, []);
+
     return (
         <Layout>
             <Routes>
