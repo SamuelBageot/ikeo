@@ -9,7 +9,7 @@ const About = () => {
             <S.Wrapper>
                 <S.About>
                     <S.ImgContainer>
-                        <S.Img src="/images/interior.jpg" alt="beautiful interior" />
+                        <S.Img src="/images/interior-small.jpg" alt="beautiful interior" />
                     </S.ImgContainer>
                     <S.Texts>
                         <S.Title>Our Story</S.Title>

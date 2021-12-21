@@ -17,7 +17,6 @@ export const HeroBanner = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padd
 
     img {
         /* height: 100%; */

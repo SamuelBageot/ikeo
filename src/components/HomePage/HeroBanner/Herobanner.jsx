@@ -10,7 +10,7 @@ const HeroBanner = () => {
                     <S.Btn to="/products">SHOP NOW</S.Btn>
                 </S.Texts>
                 <S.Images>
-                    <img src="/images/bois-3.jpg" alt="" />
+                    <img src="/images/bois-3-small.jpg" alt="" />
                 </S.Images>
             </S.HeroBanner>
         </S.Wrapper>
