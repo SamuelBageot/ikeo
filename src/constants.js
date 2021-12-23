@@ -23,3 +23,10 @@ export const services = [
             'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
     }
 ];
+
+export const initialSearchFilters = {
+    categories: ["all"],
+    colors: ["all"],
+    companies: ["all"],
+    prices: []
+}

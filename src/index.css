@@ -20,8 +20,12 @@ body {
   --color-primary: #c5a491;
   --color-secondary: #324d67;
 
-  /* WIDTH */
+  /* WIDTHS */
   --max-width: 1200px;
+
+  /* HEIGHTS */
+  --navbar-height: 75px;
+  --footer-height: 75px;
 }
 
 code {

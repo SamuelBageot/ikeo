@@ -7,6 +7,7 @@ export const Footer = styled.footer`
     justify-content: center;
     align-items: center;
     padding: 30px;
+    height: var(--footer-height);
 `;
 
 export const Texts = styled.p`

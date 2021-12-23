@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
     /* border: 1px solid blue; */
 
-    height: 75px;
+    height: var(--navbar-height);
 
     display: flex;
     justify-content: space-around;

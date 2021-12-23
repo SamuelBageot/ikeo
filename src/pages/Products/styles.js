@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
     display: flex;
-    justify-content: center;
+    /* justify-content: space-between; */
+
+    width: var(--max-width);
 `;
