@@ -3,10 +3,13 @@ import styled from "styled-components";
 export const Sidebar = styled.aside`
     /* border: 1px solid green; */
     
+    border: 3px solid #eaded7;
+    border-radius: 10px;
     position: sticky;
+    margin-top: 1rem;
     height: 100%;
     top: 1rem;
-    padding: 1rem 0;
+    padding: 1rem .5rem;
     /* margin-right: 1rem; */
     /* width: 20%; */
 `;

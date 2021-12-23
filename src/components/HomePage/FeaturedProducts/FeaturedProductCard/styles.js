@@ -1,10 +1,20 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const Product = styled.div`
+export const Product = styled(Link)`
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-decoration: none;
     margin-bottom: 20px;
+    
+    :hover img {
+        transform: scale(1.03);
+    }
+    `;
+
+export const ProductImgContainer = styled.div`
+    overflow: hidden;
 `;
 
 export const ProductImg = styled.img`
@@ -13,6 +23,7 @@ export const ProductImg = styled.img`
     object-fit: cover;
     margin-right: 20px;
     border-radius: 5px;
+    transition: all .3s;
 `;
 
 export const ProductInfos = styled.div`
