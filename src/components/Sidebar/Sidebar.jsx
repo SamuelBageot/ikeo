@@ -11,6 +11,7 @@ const Sidebar = () => {
 
     const dispatch = useDispatch();
     const { searchFilters, maxPrice, userFilters } = useSelector(state => state.searchFilters);
+    const [search, setSearch] = useState('');
 
     const defineUserFilters = e => {
         const val = e.target.type === "checkbox" ? e.target.checked : e.target.value;
@@ -23,7 +24,7 @@ const Sidebar = () => {
     return (
         <S.Sidebar>
             <form action="" onSubmit={e => e.preventDefault()}>
-                <S.SearchInput name="search" type="text" placeholder="Search" onChange={defineUserFilters} />
+                <S.SearchInput name="search" type="text" placeholder="Search product" value={userFilters.search} onChange={defineUserFilters} />
             </form>
             <div>
                 <S.FilterTitle>Category</S.FilterTitle>
@@ -39,20 +40,24 @@ const Sidebar = () => {
             </div>
             <div>
                 <S.FilterTitle>Company</S.FilterTitle>
-                <select name="company" id="" value={userFilters.company} onChange={defineUserFilters}>
+                <select name="company" id="" value={userFilters.company} onChange={defineUserFilters} style={{ width: "100%", height: "2rem", cursor: "pointer", outline: "none" }}>
                     {searchFilters?.companies.map(company => <option key={Math.random()}>{company}</option>)}
                 </select>
             </div>
             <div>
                 <S.FilterTitle>Price</S.FilterTitle>
-                <p>{formatPrice(userFilters.price)}</p>
-                <input style={{ cursor: "pointer" }} type="range" min="0" max={Math.max(...searchFilters?.prices)} step="1" value={userFilters.price} onChange={defineUserFilters} name="price" />
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <p>{formatPrice(0)}</p>
+                    <p>{formatPrice(userFilters.price)}</p>
+                </div>
+                <input style={{ width: "100%", cursor: "pointer" }} type="range" min="0" max={Math.max(...searchFilters?.prices)} step="1" value={userFilters.price} onChange={defineUserFilters} name="price" />
             </div>
-            <div>
-                <label htmlFor="shipping">Free Shipping</label>
-                <input type="checkbox" id="shipping" name="shipping" checked={userFilters.shipping} onChange={defineUserFilters} />
+            <div style={{ display: "flex", alignItems: "center", position: "relative" }}>
+                <label htmlFor="shipping" style={{ position: "relative" }}>Free Shipping</label>
+                {/* <S.HiddenCheckbox type="checkbox" id="shipping" name="shipping" checked={userFilters.shipping} onChange={defineUserFilters} /> */}
+                <S.Checkbox type="checkbox" id="shipping" name="shipping" checked={userFilters.shipping} onChange={defineUserFilters}></S.Checkbox>
             </div>
-            <button onClick={clearFilters} style={{ cursor: "pointer" }}>Clear Filters</button>
+            <S.ClearBtn onClick={clearFilters} style={{ cursor: "pointer", width: "100%" }}>Clear Filters</S.ClearBtn>
         </S.Sidebar>
     )
 };
