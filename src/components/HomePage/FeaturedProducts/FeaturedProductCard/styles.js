@@ -14,16 +14,22 @@ export const Product = styled(Link)`
     `;
 
 export const ProductImgContainer = styled.div`
+    width: 300px;
+    height: 180px;
+    position: relative;
     overflow: hidden;
+    /* border-radius: 5px; */
+    display: block; 
 `;
 
 export const ProductImg = styled.img`
-    width: 300px;
-    height: 180px;
+    /* margin-right: 20px; */
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    margin-right: 20px;
-    border-radius: 5px;
-    transition: all .3s;
+    object-position: 50% 0%;
+    /* border-radius: 5px; */
+    transition: all .3s ease-in-out;
 `;
 
 export const ProductInfos = styled.div`

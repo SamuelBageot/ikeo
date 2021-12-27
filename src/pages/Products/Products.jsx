@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Breadcrumb from "../../components/UI/Breadcrumb/Breadcrumb";
-import { Wrapper } from "./styles";
+import * as S from "./styles";
 import { formatPrice } from "../../utils";
 import { Link } from "react-router-dom";
 
@@ -13,24 +13,24 @@ const Products = () => {
         return (
             <>
                 <Breadcrumb />
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                    <Wrapper>
+                <S.Wrapper>
+                    <S.Content>
                         <Sidebar />
-                        <div style={{ flex: 1, padding: "1rem", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "2rem", alignItems: "start" }}>
+                        <S.Products>
                             {filteredProducts.map(product => {
                                 return (
-                                    <Link to={`/products/${product.id}`} key={product.id} style={{ textDecoration: "none", color: "inherit" }} >
-                                        <img src={product.image.formats.small.url} alt={product.name} style={{ borderRadius: "8px", width: "100%", display: "block", height: "200px", objectFit: "cover" }} />
-                                        <div style={{ display: "flex", justifyContent: 'space-between', alignItems: "center" }}>
-                                            <h1>{product.name}</h1>
-                                            <p>{formatPrice(product.price)}</p>
-                                        </div>
-                                    </Link>
+                                    <S.ProductLink to={`/products/${product.id}`} key={product.id} style={{ textDecoration: "none", color: "inherit" }} >
+                                        <S.ProductImg src={product.image.formats.small.url} alt={product.name} />
+                                        <S.ProductInfos>
+                                            <S.ProductTitle>{product.name}</S.ProductTitle>
+                                            <S.ProductPrice>{formatPrice(product.price)}</S.ProductPrice>
+                                        </S.ProductInfos>
+                                    </S.ProductLink>
                                 )
                             })}
-                        </div>
-                    </Wrapper>
-                </div>
+                        </S.Products>
+                    </S.Content>
+                </S.Wrapper>
             </>
         )
     }
@@ -38,14 +38,14 @@ const Products = () => {
     return (
         <>
             <Breadcrumb />
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <Wrapper>
+            <S.Wrapper>
+                <S.Content>
                     <Sidebar />
-                    <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                        <p style={{ fontSize: "1.2rem", fontWeight: "500" }}>Sorry, no product match your search</p>
-                    </div>
-                </Wrapper>
-            </div>
+                    <S.NoProducts>
+                        <S.NoProductsText>Sorry, no product match your search</S.NoProductsText>
+                    </S.NoProducts>
+                </S.Content>
+            </S.Wrapper>
         </>
     )
 };
