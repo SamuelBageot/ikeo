@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router";
 import ErrorPage from "../../pages/404/404";
 import About from "../../pages/About/About";
+import Cart from "../../pages/Cart/Cart";
 import Home from "../../pages/Home/Home";
 import Product from "../../pages/Products/Product/Product";
 import Products from "../../pages/Products/Products";
@@ -74,6 +75,7 @@ const App = () => {
                 <Route path="products" element={<Products />} />
                 <Route path="products/:productId" element={<Product />} />
                 <Route path="about" element={<About />} />
+                <Route path="cart" element={<Cart />} />
                 <Route path="*" element={<ErrorPage />} />
             </Routes>
         </Layout>
