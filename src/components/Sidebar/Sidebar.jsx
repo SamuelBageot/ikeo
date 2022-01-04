@@ -11,7 +11,6 @@ const Sidebar = () => {
 
     const dispatch = useDispatch();
     const { searchFilters, maxPrice, userFilters } = useSelector(state => state.searchFilters);
-    const [search, setSearch] = useState('');
 
     const defineUserFilters = e => {
         const val = e.target.type === "checkbox" ? e.target.checked : e.target.value;

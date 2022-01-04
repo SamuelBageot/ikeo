@@ -25,6 +25,7 @@ export const SearchInput = styled.input`
     background-color: #eaded7;
     color: black;
     outline: none;
+    height: 2.3rem;
 `;
 
 export const FilterTitle = styled.h5`
